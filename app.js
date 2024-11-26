@@ -1,8 +1,14 @@
 const express = require ('express');
 const morgan = require ('morgan');
+const mongoose = require ('mongoose');
 
 // express app
 const app = express();
+
+
+// connect to mongodb
+const dbURI = 'mongodb+srv://netninja:<test1234>@nodetuts.2rbld.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts';
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //register view engine
 app.set('view engine', 'ejs');
