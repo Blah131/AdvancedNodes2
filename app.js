@@ -7,16 +7,14 @@ const app = express();
 
 
 // connect to mongodb
-const dbURI = 'mongodb+srv://netninja:<test1234>@nodetuts.2rbld.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+const dbURI = 'mongodb+srv://netninja:test1234@nodetuts.2rbld.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts';
+mongoose.connect(dbURI)
+    .then((result) => app.listen(3001))
+    .catch((err) => console.log(err));
 
 //register view engine
 app.set('view engine', 'ejs');
 
-
-// listen for requests
-
-app.listen(3001);
 
 
 // middleware & static files
